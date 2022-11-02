@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>띵언전시회</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Gowun+Batang&display=swap');
+
+		body{margin: 0; display: fixed; flex-wrap: wrap; overflow: hidden;background: url("pattern.png"); position: absolute; 
+			font-family: 'Gowun Batang', serif; font-size: 12px; line-height: 2.0;}
+		.introFloating{width: 100vw; height: 100vh; background: black;
+		position: absolute; display: flex; color: white; text-align: center; }		
+
+		.floating{width: 100vw; height: 100vh; background: black;
+		position: absolute; display: none; color: white; text-align: center; }
+
+		.img02{width: 28vw; cursor: pointer;}
+		.img05{width: 18vw; cursor: pointer;}
+		.img03{width: 16vw; cursor: pointer;}
+		.img04{width: 15.6vw; cursor: pointer;}
+		.img06{width: 17.4vw; cursor: pointer;}
+		.person{position: absolute; height: 20vw; top: 40%; left: 50%; transform: translate(-50%, -50%); cursor: pointer; /*box-shadow: 0px 5px 20px 5px ssgray;*/}
+		.myPhoto{position: absolute; height: 30vw; top: 10%; left: 36%; transform: translate(-50%, -50%); cursor: pointer;}
+		.saying{position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%);}
+		.introsaying{position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%);}
+		.introsaying2{font-size: 9px;}
+		.myoutput{osition: absolute; height: 30vw; top: 10%; transform: translate(-50%, -50%);}
+
+		div.F1{position: absolute; left: 15.3vw; top: 62.8vh;}
+		div.F2{position: absolute; left: 26.4vw; top: 32.6vh;}
+		div.F3{position: absolute; left: 45.4vw; top: 38.3vh;}
+		div.F4{position: absolute; left: 55.1vw; top: 12.9vh;}
+		div.F5{position: absolute; left: 63.6vw; top: 37.7vh;}
+		div.F6{position: absolute; left: 45.5vw; top: 62.7vh;}
+		div.F7{position: absolute; left: 62.8vw; top: 62.5vh;}
+
+		@keyframes fadeinout{
+			0%{opacity: 0;}
+            20%{opacity: 1;}
+            80%{opacity: 1;}
+            100%{opacity: 0;}
+		}
+
+		@keyframes fadein{
+			0%{opacity: 0;}
+            100%{opacity: 1;}
+		}
+
+		@keyframes fadeout{
+			0%{opacity: 1;}
+            100%{opacity: 0;}
+		}
+
+
+
+		/*액자 마우스 오버*/
+		.aaa{
+		  -webkit-transition-duration: 2s;
+		    -moz-transition-duration: 2s;
+		    -ms-transition-duration: 2s;
+		    -o-transition-duration: 2s;
+		    transition-duration: 2s;
+		  
+		  -webkit-transform: scale(1.0);
+		  -moz-transform: scale(1.0);
+		  -ms-transform: scale(1.0);
+		  -o-transform: scale(1.0);
+		  transform: scale(1.0);
+		}
+
+		.aaa:hover {
+		    -webkit-transform: scale(0.8);
+		  -moz-transform: scale(0.8);
+		  -ms-transform: scale(0.8);
+		  -o-transform: scale(0.8);
+		  transform: scale(0.8);
+		}
+
+
+		/*나만의 액자 마우스 오버*/
+		.bbb{
+		  -webkit-transition-duration: 2s;
+		    -moz-transition-duration: 2s;
+		    -ms-transition-duration: 2s;
+		    -o-transition-duration: 2s;
+		    transition-duration: 2s;
+		  
+		  -webkit-transform: scale(1.0);
+		  -moz-transform: scale(1.0);
+		  -ms-transform: scale(1.0);
+		  -o-transform: scale(1.0);
+		  transform: scale(1.0);
+		}
+
+		.bbb:hover {
+		    -webkit-transform: scale(0.8);
+		  -moz-transform: scale(0.8);
+		  -ms-transform: scale(0.8);
+		  -o-transform: scale(0.8);
+		  transform: scale(0.8);
+		}
+
+		/*이미지 입력 인풋*/
+		input{display: none; }
+		.chooseText{position: absolute;  top: 40%; left: 50.5%; transform: translate(-50%, -50%); }
+
+		#myoutput{height: 25vw; top: 40%; left: 50.5%; transform: translate(-50%, -50%);}
+
+	</style>
+</head>
+<body>
+	<div>
+	<div class="F1 aaa"><img id="go1" class="img02" src="frame02.png"></div>
+	<div class="F2 aaa"><img id="go2" class="img05" src="frame05.png"></div>
+	<div class="F3 aaa"><img id="go3" class="img03" src="frame03.png"></div>
+	<div class="F4 aaa"><img id="go4" class="img04" src="frame04.png"></div>
+	<div class="F5 aaa"><img id="go5" class="img04" src="frame04.png"></div>	
+	<div class="F6 aaa"><img id="go6" class="img04" src="frame04.png"></div>	
+	<div class="F7 aaa"><img id="mygo" class="img06" src="frame06.png"></div>
+
+	<div class="introFloating" id="introFloat1">
+	</div>
+
+	<div class="floating aaa" id="introFloat2">
+		<img class="person" id="introImg" src="intro.jpg">
+		<h1 class="introsaying" id="introImg">띵언전시회에 오신 것을 환영합니ㄷr.
+			<p class="introsaying2">* PC모드 전체화면 감상을 권장드립니ㄷr. *</p>
+		</h1>
+	</div>
+		
+	<div class="floating" id="oneFloat">
+		<img class="person" src="Freud.png">
+		<h1 class="saying" id="result">사랑하고 일하라. 일하고 사랑하라. 그것이 삶의 전부다.
+		<br>- 지그문트 프로이트(Sigmund Freud, 1856~193) -</h1>
+	</div>
+
+	<div class="floating" id="twoFloat1">
+		<img class="person" src="park1.jpg">
+	</div>
+	<div class="floating" id="twoFloat2">
+		<img class="person" src="park2.jpg">
+	</div>
+	<div class="floating" id="twoFloat3">
+		<img class="person" src="park3.jpg">
+	</div>
+	<div class="floating" id="twoFloat4">
+		<img class="person" src="park4.jpg">
+	</div>
+
+
+	<div class="floating" id="threeFloat">
+		<img class="person" src="gosim.jpg">
+		<h1 class="saying" id="result">- 최고심 -</h1>
+	</div>
+	<div class="floating" id="fourFloat">
+		<img class="person" src="do.png">
+		<h1 class="saying" id="result">"안되면 되는 거 해라!"<br>- 미상 -</h1>
+	</div>
+	<div class="floating" id="fiveFloat">
+		<img class="person" src="money.jpeg">
+		<h1 class="saying" id="result">"아무도 나도 모르고, 돈이 많았으면 좋겠다."<br>- 라디오스타, 류승수 -</h1>
+	</div>
+	<div class="floating" id="sixFloat">
+		<img class="person" src="maruco.png">
+		<h1 class="saying" id="result">"의미 없는 것을 잔뜩 하는 것이 인생이란다."<br>- 마루코는 아홉살, 토모조 할아버지 -</h1>
+	</div>
+
+	<!-- 나만의 명언만들기 - 이미지 입력받고 띄우기 -->
+	<div class="floating" id="myFloat">
+		<input type="file" accept="image/*" id="imageInput"
+		onchange='openFile(event)'>
+		<label for="imageInput" class="image-button">
+			<img id="output" class="myPhoto bbb" src="mirror_frame.png">
+			<h1 class="chooseText" id="text">Choose image</h1>
+		</label>
+		<h1 class="saying" id="myresult"></h1>
+	</div>
+
+
+	</div>
+	<script type="text/javascript">
+
+		//인트로 1
+		let start = function(){
+			introFloat2.style.display = "flex";
+			introFloat2.style.animation = "fadein 3s";
+		}
+		introFloat2.onclick= function(){
+			introFloat1.style.animation = "fadeout 1.5s";
+			introFloat2.style.animation = "fadeout 1.5s";
+			
+			introFloat2.style.display = "none";
+		}
+		start();
+		introFloat1.onanimationend = function(){
+			introFloat1.style.display = "none";
+		}
+
+
+		//액자 1
+		go1.onclick = function(){
+			oneFloat.style.display = "flex";
+			oneFloat.style.animation = "fadeinout 3s";
+		}
+		oneFloat.onanimationend = function(){
+			oneFloat.style.display = "none";
+		}
+		//액자 2
+		go2.onclick = function(){
+			twoFloat1.style.display = "flex";
+			twoFloat1.style.animation = "fadein 1.5s";}
+
+		twoFloat1.onanimationend = function(){
+			twoFloat2.style.display = "flex";
+			twoFloat2.style.animation = "fadein 1.5s";}
+
+				twoFloat2.onanimationend = function(){		
+					twoFloat3.style.display = "flex";
+					twoFloat3.style.animation = "fadein 1.5s";}
+
+						twoFloat3.onanimationend = function(){				
+							twoFloat4.style.display = "flex";
+							twoFloat4.style.animation = "fadein 1.5s";
+							}
+
+							twoFloat4.onanimationend = function(){
+								twoFloat1.style.display = "none";
+								twoFloat2.style.display = "none";
+								twoFloat3.style.display = "none";
+								twoFloat4.style.display = "none";
+								}
+
+		//액자 3
+		go3.onclick = function(){
+			threeFloat.style.display = "flex";
+			threeFloat.style.animation = "fadeinout 3s";
+		}
+		threeFloat.onanimationend = function(){
+			threeFloat.style.display = "none";
+		}
+		//액자 4
+		go4.onclick = function(){
+			fourFloat.style.display = "flex";
+			fourFloat.style.animation = "fadeinout 3s";
+		}
+		fourFloat.onanimationend = function(){
+			fourFloat.style.display = "none";
+		}
+		//액자 5
+		go5.onclick = function(){
+			fiveFloat.style.display = "flex";
+			fiveFloat.style.animation = "fadeinout 3s";
+		}
+		fiveFloat.onanimationend = function(){
+			fiveFloat.style.display = "none";
+		}
+		//액자 6
+		go6.onclick = function(){
+			sixFloat.style.display = "flex";
+			sixFloat.style.animation = "fadeinout 3s";
+		}
+		sixFloat.onanimationend = function(){
+			sixFloat.style.display = "none";
+		}
+
+
+		//명언 만들기
+		mygo.onclick = function(){
+			let	mysaying = prompt('나만의 명언을 입력해주세요.','우와');
+			if (mysaying !=null){
+				document.getElementById("myresult").innerHTML = mysaying;
+				myFloat.style.display = "flex";
+				myFloat.style.animation = "fadein 3s";
+			}
+		}
+
+		//나만의 명언 사진 넣기
+			  var openFile = function(event) {
+		    var input = event.target;
+		    var reader = new FileReader();
+		    reader.onload = function(){
+		      var dataURL = reader.result;
+		      var output = document.getElementById("output");
+		      output.id = "myoutput"
+		      myoutput.src = dataURL;
+		    };
+		    reader.readAsDataURL(input.files[0]);
+		    text.style.display = "none";
+		  };
+
+
+
+
+	</script>
+</body>
+</html>
